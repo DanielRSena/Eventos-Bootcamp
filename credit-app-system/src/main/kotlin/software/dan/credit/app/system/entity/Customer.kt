@@ -5,7 +5,7 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "Cliente")
 
-class Customer(
+data class Customer(
     @Column(nullable = false) var firstName: String = "",
     @Column(nullable = false) var lastName: String = "",
     @Column(nullable = false, unique = true) val cpf: String,
