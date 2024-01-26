@@ -1,7 +1,8 @@
-package software.dan.credit.app.system.entity;
+package software.dan.credit.app.system.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
+import software.dan.credit.app.system.entity.Credit
 import java.util.UUID
 
 interface CreditRepository : JpaRepository<Credit, Long> {

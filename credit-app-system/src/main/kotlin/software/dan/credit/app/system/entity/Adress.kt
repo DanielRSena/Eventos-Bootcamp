@@ -8,6 +8,6 @@ import jakarta.persistence.Table
 
 @Embeddable
 data class Address (
-    @Column(nullable = false)val zipCode: String = "",
-    @Column(nullable = false) val street: String = ""
+    @Column(nullable = false) var zipCode: String = "",
+    @Column(nullable = false) var street: String = ""
 )
