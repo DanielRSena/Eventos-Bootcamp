@@ -32,8 +32,6 @@ public class QuestionController {
         return toMap;
     }
 
-
-
     static QuestionResultDTO mapQuestionToDTO(QuestionEntity question){
 
         var questionResultDTO = QuestionResultDTO .builder().id(question.getId()).technology(question.getTechnology())

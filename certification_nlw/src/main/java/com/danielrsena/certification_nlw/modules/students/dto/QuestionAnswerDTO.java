@@ -1,5 +1,7 @@
 package com.danielrsena.certification_nlw.modules.students.dto;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QuestionAnswerDTO {
 
-    private String questionId;
-    private String alternativeId;
-
+    private UUID questionId;
+    private UUID alternativeId;
+    private boolean isCorrect;
 }
