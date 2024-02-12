@@ -4,10 +4,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import io.mockk.just
 import io.mockk.verify
-import jakarta.validation.constraints.Future
-import jakarta.validation.constraints.NotNull
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -15,14 +12,12 @@ import org.springframework.test.context.ActiveProfiles
 import software.dan.credit.app.system.entity.Address
 import software.dan.credit.app.system.entity.Credit
 import software.dan.credit.app.system.entity.Customer
-import software.dan.credit.app.system.enummeration.Status
-import software.dan.credit.app.system.exception.BusinessException
 import software.dan.credit.app.system.repository.CreditRepository
-import software.dan.credit.app.system.repository.CustomerRepository
+import software.dan.credit.app.system.repository.CreditRepositoryTest
 import software.dan.credit.app.system.service.impl.CreditService
-import software.dan.credit.app.system.service.impl.CustomerService
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.Month
 import java.util.*
 
 @ActiveProfiles("test")
@@ -40,7 +35,7 @@ class CreditServiceTest {
 
         //given
         val fakeCustomer = buildCustomer()
-        val fakeCredit = fakeCustomer.id?.let { buildCredit(customerId = it) }
+        val fakeCredit = fakeCustomer.id?.let { buildCredit(customer = fakeCustomer) }
 
         every { creditRepository.save(any()) } returns fakeCredit!!
 
@@ -103,16 +98,15 @@ class CreditServiceTest {
     private fun buildCredit(
 
         creditValue: BigDecimal = BigDecimal.valueOf(1200.0),
-        dayFirstOfInstallment: LocalDate = LocalDate.now(),
+        dayFirstOfInstallment: LocalDate = LocalDate.of(2024, Month.MARCH, 23),
         numberOfInstallments: Int = 12,
-        customerId: Long = 1
-
-    ) = Credit(
+        customer: Customer
+    ): Credit = Credit(
 
         creditValue = creditValue,
         dayFirstInstallment = dayFirstOfInstallment,
         numberOfInstallment = numberOfInstallments,
-        id = customerId
+        customer = customer
     )
 
     private fun buildCustomer(
