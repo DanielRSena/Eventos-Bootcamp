@@ -7,7 +7,7 @@ import software.dan.credit.app.system.repository.CustomerRepository
 import software.dan.credit.app.system.service.ICustomerService
 
 @Service
-data class CustomerService(
+class CustomerService(
     private val customerRepository: CustomerRepository
 ) : ICustomerService {
 
