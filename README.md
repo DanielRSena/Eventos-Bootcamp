@@ -1,3 +1,3 @@
-# Eventos BootCamp
+# Eventos
 
-Esse repositório serve para manter os materiais que fiz nos bootcamps e eventos que pratiquei
+Esse repositório serve para manter os materiais que fiz nos bootcamps, eventos e cursos que participei
