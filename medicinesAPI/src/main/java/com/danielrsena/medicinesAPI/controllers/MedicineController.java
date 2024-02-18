@@ -2,16 +2,21 @@ package com.danielrsena.medicinesAPI.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.danielrsena.medicinesAPI.dto.MedicineDTO;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
-@RestController
-@RequestMapping("/inicio")
+@RestController //indica ao String que deve iniciá-la como um controller
+@RequestMapping("/remedios") //mapeia o endpoint, url
 public class MedicineController {
     
-    @GetMapping
-    public String helloWord(){
-        return "Hello, World!";
+    @PostMapping 
+    public void cadastrar(@RequestBody MedicineDTO novoRemedio){//@RequestBody serve para o Spring entender que essa String "sairá" do JSON que foi mandado
+
+
+        System.out.println(novoRemedio);
     }
 }
