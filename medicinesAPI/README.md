@@ -1,16 +1,22 @@
-<h1>API para gerência de uma farmácia</h1>
+# API para gerência de uma farmácia 💊
 
-<h2>Sobre a ferramenta</h2>
+## Sobre a ferramenta 💊💊
 
-<h2>Algumas explicações</h2>
+## Algumas explicações
 
-### Diretório Controller
+### FlyWay
+
+Serve para a criação de tabelas e contrle de migrações em um DB.
+
+### Diretório Controller 🔗
 
 Serve para mapear o site, deixando assim os métodos mais organizados
 
-### Diretório DTO
+### Diretório DTO 🛠️
 O Data Transfer Object é um padrão de projetos que serve para transportar dados entre vários componentes que compõem um sistema. 
 
-Como em um software é normal termos variáveis usadas e classes em vários locais, é compreensível a possibildade de torná-las públicas. Entretanto, algumas partes dessas entidades podem ser sensíveis e não podem ter essa mesma visibilidade, como senhas ou id por exemplo. 
+Como em um software é normal termos variáveis e classes referenciadas em vários locais, é compreensível a possibildade de torná-las públicas em sua declaração. 
 
-O DTO serve exatamente para isso: pode ser considerado como um "montador sem dados sensíveis de uma entidade". Se quer listar usuários por exemplo: não é necessário listar todos os dados de todos, até porque é perigoso. 
+Entretanto, algumas de suas partes podem ser sensíveis e não podem ter essa mesma visibilidade, como senhas ou id por exemplo. Ex: Se quer listar todos os trabalhadores de uma empresa, como faremos nessa API, não é necessário listar todos os dados de cada pessoa, até porque é perigoso ter seu CPF ou endereço conseguido de forma tão fácil. 
+
+O DTO serve exatamente para isso: pode ser considerado como um montador personalizado. 
