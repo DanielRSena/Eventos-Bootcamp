@@ -27,17 +27,18 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 @Table(name = "Medicines") //representada numa tabela do BD com nome Remedios
 public class Medicine {
-    
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id; //id, e indica que será uma primary key. Gera em ordem
-    private String nome;
-    @Enumerated(EnumType.STRING) private Via via; 
-    //diz que esse atributo é enum e deve ser enumerado pelo JPA
+
     private String lote; 
+    private String nome;
+    private boolean ativo;
     private int quantidade; 
     private LocalDate validade; 
+    @Enumerated(EnumType.STRING) private Via via; 
     @Enumerated(EnumType.STRING) private Laboratorio laboratorio;
+    //diz que esse atributo é enum e deve ser enumerado pelo JPA
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id; 
+    //id, e indica que será uma primary key. Gera em ordem
 
-    //Esse construtor serve para 
     public Medicine(MedicineDTO dados){
 
         this.nome = dados.nome();
@@ -46,6 +47,7 @@ public class Medicine {
         this.quantidade = dados.quantidade();
         this.validade = dados.validade();
         this.laboratorio = dados.laboratorio();
+        this.ativo = true;
     }
 
     public void updateMedicine(@Valid UpdateMedicine updatedMedicine) {
@@ -54,4 +56,8 @@ public class Medicine {
         if(updatedMedicine.via() != null) this.via = updatedMedicine.via();
         if(updatedMedicine.laboratorio() != null) this.laboratorio = updatedMedicine.laboratorio();
     }
+
+    public void inativar() { this.ativo = false; }
+
+    public void reativar() { this.ativo = true; }
 }
