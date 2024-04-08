@@ -7,5 +7,4 @@ public record EventDetailsDTO(
     String slug,
     Integer maxAttendee,
     Integer attendees) {
-    
 }

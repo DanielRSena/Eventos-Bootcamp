@@ -1,38 +1,29 @@
 package com.danielrsena.pass_in.exception;
 
-import org.flywaydb.core.api.callback.Event;
+import java.time.LocalDateTime;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import com.danielrsena.pass_in.dataTranferObjects.ErrorResponseDTO;
 
 @ControllerAdvice
 public class ExceptionEntityHandler {
     
-    @ExceptionHandler(EventNotFoundException.class)
-    public ResponseEntity handleEventNotFound(EventNotFoundException exception){
-        return ResponseEntity.notFound().build();
+    @SuppressWarnings("rawtypes")
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity handleNotFound(NotFoundException exception){
+        return ((BodyBuilder) ResponseEntity.notFound()).body(
+            new ExceptionDetails(HttpStatus.NOT_FOUND.value(), exception.getMessage(), LocalDateTime.now())
+        );
     }
 
-    @ExceptionHandler(EventFullException.class)
-    public ResponseEntity<ErrorResponseDTO> handleventFull(EventFullException exception){
-        return ResponseEntity.badRequest().body(new ErrorResponseDTO(exception.getMessage()));
-    }
-
-    @ExceptionHandler(AttendeeNotFoundException.class)
-    public ResponseEntity handleAttendeeNotFound(AttendeeNotFoundException exception){
-        return ResponseEntity.notFound().build();
-    }
-
-    @ExceptionHandler(AttendeeAlreadyRegisteredException.class)
-    public ResponseEntity handleAttendeeAlreadyRegistered(AttendeeAlreadyRegisteredException exception){
-        return ResponseEntity.status(HttpStatus.CONFLICT).build();
-    }
-
-    @ExceptionHandler(CheckInAlreadyExistsException.class)
-    public ResponseEntity handleCheckInAlreadyExists(CheckInAlreadyExistsException exception){
-        return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    @SuppressWarnings("rawtypes")
+    @ExceptionHandler(ConflictException.class)
+    public ResponseEntity handleConflict(ConflictException exception){
+        return ((BodyBuilder) ResponseEntity.badRequest()).body(
+            new ExceptionDetails(HttpStatus.CONFLICT.value(), exception.getMessage(), LocalDateTime.now())
+        );
     }
 }

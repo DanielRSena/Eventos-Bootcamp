@@ -8,14 +8,14 @@ import lombok.Getter;
 public class EventResponseDTO {
     EventDetailsDTO event;
 
-    public EventResponseDTO(Event event, Integer nAttendees){
-
+    public EventResponseDTO(Event event, Integer nAttendees) {
         this.event = new EventDetailsDTO(
-            event.getId(), 
-            event.getTitle(), 
-            event.getDetails(), 
-            event.getSlug(), 
-            event.getMaxAttendees(), 
-           nAttendees);
+            event.getId(),
+            event.getTitle(),
+            event.getDetails(),
+            event.getSlug(),
+            event.getMaxAttendees(),
+            nAttendees
+        );
     }
 }
