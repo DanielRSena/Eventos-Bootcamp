@@ -21,3 +21,4 @@ Comparator: Tem o método 'compare()' para ordenar elementos, tem várias sequê
 - Classe do java.util que mantém funções gerais de coleções
 - Fornece funções para ordenação, busca, manipulação e sincronização
 - o sort() ordena de forma ascendente, e o reverseOrder(), decrescente. 
+

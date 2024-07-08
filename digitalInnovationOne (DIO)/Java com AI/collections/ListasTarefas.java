@@ -1,5 +1,5 @@
 
-import objs.listas.compras.CarrinhoDeCompras;
+
 import objs.listas.tarefas.ListaDeTarefas;
 
 class ListasTarefas {
