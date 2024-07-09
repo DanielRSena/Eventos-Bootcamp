@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:rocketseat/NLW 15 - Unite/src/main/java/com/danielrsena/pass_in/controllers/AttendeeController.java
 package com.danielrsena.pass_in.controllers;
 
 import org.springframework.http.ResponseEntity;
