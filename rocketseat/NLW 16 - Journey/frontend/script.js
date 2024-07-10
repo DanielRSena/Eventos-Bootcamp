@@ -64,12 +64,32 @@ const criarItemDaAtividade = (atividade) => {
     const formatar = formatador(atividade.data);
 
     return `
+    <div class="card-bg">
+
+        ${input}
+
         <div>
-            ${input}
+
+            <svg class="active" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.50008 8.99999L8.16675 10.6667L11.5001 7.33332M17.3334 8.99999C17.3334 13.6024 13.6025 17.3333 9.00008 17.3333C4.39771 17.3333 0.666748 13.6024 0.666748 8.99999C0.666748 4.39762 4.39771 0.666656 9.00008 0.666656C13.6025 0.666656 17.3334 4.39762 17.3334 8.99999Z" stroke="#BEF264" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <svg class="inactive" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.41664 1.81833C9.46249 1.61593 10.5374 1.61593 11.5833 1.81833M11.5833 18.1817C10.5374 18.3841 9.46249 18.3841 8.41664 18.1817M14.6741 3.10083C15.5587 3.70019 16.3197 4.46406 16.9158 5.35083M1.8183 11.5833C1.6159 10.5375 1.6159 9.46252 1.8183 8.41667M16.8991 14.6742C16.2998 15.5587 15.5359 16.3198 14.6491 16.9158M18.1816 8.41667C18.384 9.46252 18.384 10.5375 18.1816 11.5833M3.1008 5.32583C3.70016 4.44128 4.46403 3.68023 5.3508 3.08417M5.3258 16.8992C4.44124 16.2998 3.6802 15.5359 3.08414 14.6492" stroke="#A1A1AA" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
             <span>${atividade.nome}</span>
-            <time>${formatar.dia.semana.longo}, ${formatar.dia.numerico} de ${formatar.mes} às ${formatar.hora}h </time>
         </div>
-    `;
+
+        <time class="short">
+            ${formatar.dia.semana.curto}. ${formatar.dia.numerico} <br> ${formatar.hora}h
+        </time>
+        <time class="full">
+            ${formatar.dia.semana.longo}, ${formatar.dia.numerico} de ${formatar.mes} às ${formatar.hora}h
+        </time>
+    </div>
+`;
+
 }
 
 const section = document.querySelector('section');
@@ -124,9 +144,8 @@ const criarHorasSelecao = () => {
 
     let horasSelecao = "";
 
-    for (let hora of horas) {
+    for (let hora of horas)
         horasSelecao += `<option value="${hora}">${hora}</option>`;
-    }
 
     document.querySelector('select[name = "hora"]').innerHTML = horasSelecao;
 }
