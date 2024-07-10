@@ -18,13 +18,15 @@ public class ParticipantService {
     @Autowired
     private ParticipantRepository parRepository;
 
-    public void registerParticipantsToEvent(List<String> participants, Trip trip) { 
+    public void registerParticipants(List<String> participants, Trip trip) { 
+
         List<Participant> participantsList = participants.stream().map(email -> new Participant(email, trip)).toList();
         this.parRepository.saveAll(participantsList);
         System.out.println(participantsList.get(0).getId());
     }    
 
-    public ParticipantInviteDTO registerParticipantToEvent(String email, Trip trip) {
+    public ParticipantInviteDTO registerParticipant(String email, Trip trip) {
+
         Participant participant = new Participant(email, trip);
         this.parRepository.save(participant);
         return new ParticipantInviteDTO(participant.getId());
@@ -32,11 +34,9 @@ public class ParticipantService {
 
     public void triggerConfirmationEmailToParticipants(UUID tripId) {}
 
-    public void triggerConfirmationEmailToParticipant(String email) {
-        
-    }
+    public void triggerConfirmationEmailToParticipant(String email) {}
 
-    public List<ParticipantDataDTO> getAllParticipantsFromTrip(UUID id) {
+    public List<ParticipantDataDTO> getAllParticipantsFromTripId(UUID id) {
         return this.parRepository.findByTripId(id).stream().map(participant -> new ParticipantDataDTO(participant.getId(), participant.getName(), participant.getEmail(), participant.isConfirmed())).toList();
     }
 }

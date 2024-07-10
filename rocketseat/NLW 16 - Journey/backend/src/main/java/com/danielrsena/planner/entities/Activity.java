@@ -1,7 +1,7 @@
 package com.danielrsena.planner.entities;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,34 +15,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.format.DateTimeFormatter;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "participants")
-public class Participant {
-
+@Table(name = "activities")
+public class Activity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
-    @Column(nullable = false)
-    private String email;
-
-    @Column(name = "is_confirmed", nullable = false)
-    private boolean isConfirmed;
+    @Column(name="occurs_at")
+    private LocalDateTime occursAt;
 
     @ManyToOne
-    @JoinColumn(name = "trip_id", nullable = false)
+    @JoinColumn(name="trip_id", nullable = false)
     private Trip trip;
 
-    public Participant(String email, Trip trip) {
-        this.name = "";
-        this.isConfirmed = false;
-        this.email = email;
+    public Activity(String title, String occursAt, Trip trip) {
+        this.title = title;
+        this.occursAt = LocalDateTime.parse(occursAt, DateTimeFormatter.ISO_DATE_TIME);
         this.trip = trip;
     }
 }

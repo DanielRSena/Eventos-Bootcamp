@@ -3,5 +3,5 @@ CREATE TABLE participants (
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     is_confirmed BOOLEAN NOT NULL,
-    trip_id UUID REFERENCES trips(id)
+    trip_id UUID REFERENCES trips(id) ON DELETE CASCADE
 );
