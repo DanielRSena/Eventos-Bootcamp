@@ -10,6 +10,7 @@
 
 - pesquise sobre "Hierarquia de coleções framework em Java", algo assim. Presentes no Java.util
 
+
 2. Comparable x Comparator: 
 
 Comparable: Fornece uma única sequência de separação, a classe original também é alterada, tem o método 'compareTo()' para ordenação, presente no 'java.lang', pode ser ordenada com o Collections.sort(List) 
@@ -18,7 +19,22 @@ Comparator: Tem o método 'compare()' para ordenar elementos, tem várias sequê
 
 
 3. Collections
-- Classe do java.util que mantém funções gerais de coleções
-- Fornece funções para ordenação, busca, manipulação e sincronização
+
+- Classe do java.util que mantém funções gerais de coleções.
+
+- Fornece funções para ordenação, busca, manipulação e sincronização.
+
 - o sort() ordena de forma ascendente, e o reverseOrder(), decrescente. 
 
+
+4. Map 
+
+- não herda diretamente do iterable, mas ainda faz parte das coleções.
+
+- usada para mapear dados no esquema chave-valor. Logo, cada elemento tem uma chave que o identifica.
+
+- valores das chaves podem se repetir, mas chaves são únicas e só podem referenciar um valor.
+
+- as operações básicas são put, get, containsKey, contaisValue, size e isEmpty.
+
+repositório que usei como base: https://github.com/cami-la/collections-java-api-2023
