@@ -1,0 +1,3 @@
+Functional Interfaces 
+
+São qualquer interface Single Abstract Method, e sua seu uso pode ser por meio de expressões Lambda.

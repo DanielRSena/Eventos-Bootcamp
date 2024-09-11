@@ -49,7 +49,6 @@ public class MedicineController {
 
     @GetMapping
     public ResponseEntity<List<ListOfMedicines>> lerMedicines(){
-        
        var lista = medRepository.findAllByAtivoTrue().stream().map(ListOfMedicines::new).toList(); 
        return ResponseEntity.ok(lista);
     }

@@ -1,0 +1,7 @@
+Lambda
+
+- Expressões que permitem representar interfaces funcionais (com único método abstrato) de forma mais concisa e eficiente. 
+
+- Não contém declaração, pois a ideia é ele ser declarado onde será usado.
+
+- Tem a sintaxe definida como "argumento -> corpo" (padrão), mesmo que as vezes pode ter mais que argumentos, dentro de () e no corpo pode ter {}.
