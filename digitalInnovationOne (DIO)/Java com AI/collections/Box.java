@@ -1,4 +1,4 @@
-package objs;
+package collections;
 
 public class Box<T> {
     //Object obj;
