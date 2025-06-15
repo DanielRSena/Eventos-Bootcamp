@@ -1,9 +1,9 @@
-package desafiosCodigo.ContaBanco;
+package sintaxeBasicaComJava.desafiosCodigo.ContaBanco;
 
 import java.security.InvalidKeyException;
 import java.util.Scanner;
 
-import desafiosCodigo.ContaBanco.exceptions.IllegalNumberException;
+import sintaxeBasicaComJava.desafiosCodigo.ContaBanco.exceptions.IllegalNumberException;
 
 public class ContaTerminal {
 
